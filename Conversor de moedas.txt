@@ -1,0 +1,31 @@
+// Nicolas G Ferreira
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+Console.WriteLine("conversor de moeda");
+Console.Write("digite o valor em reais que voce quer converter:");
+double.TryParse(Console.ReadLine()!, out double reais);
+Console.WriteLine("\nDolar {1} \nLibras {2}");
+int.TryParse(Console.ReadLine()!, out int escolha);
+double resultado;
+double valorconvertido;
+
+switch (escolha)
+{
+
+    case 1:
+        Console.WriteLine("seu valor em dolar atual ");
+        double.TryParse(Console.ReadLine()!.Replace(".", ","), out valorconvertido);
+        resultado = reais * valorconvertido;
+        Console.WriteLine($" {valorconvertido} = {resultado}");
+        break;
+
+    case 2:
+        Console.WriteLine("seu valor em libras atual");
+        double.TryParse(Console.ReadLine()!.Replace(".", ","), out valorconvertido);
+        resultado = reais * valorconvertido;
+        Console.WriteLine($" {valorconvertido} = {resultado}");
+        break;
+    default:
+        Console.WriteLine("digite um valor valido");
+        break;
+}
