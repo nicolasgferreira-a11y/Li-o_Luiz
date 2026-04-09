@@ -1,0 +1,61 @@
+// Nicolas G Ferreira
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main()
+    {
+        // 1. Configura o terminal para exibir Emojis e acentos corretamente
+        Console.OutputEncoding = Encoding.UTF8;
+
+        Console.WriteLine("--- 🌡️ CONVERSOR DE TEMPERATURA PRO 🌡️ ---");
+        Console.WriteLine("Escolha a entrada: (1) Celsius  (2) Fahrenheit  (3) Kelvin");
+        Console.Write("Opção: ");
+        string opcao = Console.ReadLine();
+
+        Console.Write("\nDigite o valor da temperatura: ");
+
+        // 2. O "Combo" TryParse: Lê, tenta converter e cria a variável 'valor'
+        if (float.TryParse(Console.ReadLine(), out float valor))
+        {
+            Console.WriteLine("\n--- 📊 RESULTADOS ---");
+
+            switch (opcao)
+            {
+                case "1": // De Celsius para outros
+                    ExibirResultados(valor, (valor * 9 / 5) + 32, valor + 273.15f);
+                    break;
+
+                case "2": // De Fahrenheit para outros
+                    ExibirResultados((valor - 32) * 5 / 9, valor, ((valor - 32) * 5 / 9) + 273.15f);
+                    break;
+
+                case "3": // De Kelvin para outros
+                    ExibirResultados(valor - 273.15f, (valor - 273.15f) * 9 / 5 + 32, valor);
+                    break;
+
+                default:
+                    Console.WriteLine("⚠️ Opção inválida! Escolha 1, 2 ou 3.");
+                    break;
+            }
+        }
+        else
+        {
+            // 3. Tratamento de erro caso o usuário digite letras
+            Console.WriteLine("❌ Erro: Digite um número válido (use vírgula para decimais).");
+        }
+
+        Console.WriteLine("\n------------------------------------------");
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+
+    // Função auxiliar para organizar a exibição (limpa o código principal)
+    static void ExibirResultados(float c, float f, float k)
+    {
+        Console.WriteLine($"❄️ Celsius:    {c:F2}°C");
+        Console.WriteLine($"🔥 Fahrenheit: {f:F2}°F");
+        Console.WriteLine($"🧪 Kelvin:     {k:F2}K");
+    }
+}

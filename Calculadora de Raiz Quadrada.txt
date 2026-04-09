@@ -1,0 +1,30 @@
+// Nicolas G Ferreira
+using System;
+
+{
+    public static void Main(string[] args)
+    {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        Console.Write("Digite um número para calcular a raiz quadrada: ");
+
+        if (float.TryParse(Console.ReadLine(), out float numero))
+        {
+            if (numero >= 0)
+            {
+                float raizQuadrada = (float)Math.Sqrt(numero);
+                Console.WriteLine($"A raiz quadrada de {numero} é {raizQuadrada}");
+            }
+            else
+            {
+                Console.WriteLine("Não existe raiz quadrada real de número negativo!");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Valor inválido! Digite um número.");
+        }
+
+        
+    }
+}

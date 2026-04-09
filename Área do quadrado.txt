@@ -1,0 +1,27 @@
+// Nicolas G Ferreira
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+        for (int i = 1; i <= 3; i++)
+        {
+            Console.WriteLine($" Cálculo nº {i} ");
+
+           
+            Console.Write("Digite o valor do lado do quadrado: ");
+            int lado = int.Parse(Console.ReadLine());
+
+            
+            int area = lado * lado;
+
+            
+            Console.WriteLine("O triplo da área é: " + (area * 3));
+            Console.WriteLine(); 
+        }
+
+        Console.WriteLine("Fim");
+    }
+}

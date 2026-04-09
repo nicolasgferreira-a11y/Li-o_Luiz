@@ -1,0 +1,54 @@
+// Nicolas Gentile Ferreira
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // --- VARIÁVEIS E TIPAGEM ---
+        string nomeJogador; // Tipo string
+        int escolha;        // Tipo int para a decisão
+        int ladoSorteado;   // 0 para Cara, 1 para Coroa
+        Random gerador = new Random();
+
+        Console.WriteLine("=== BEM-VINDO AO DESAFIO DA MOEDA ===");
+
+        // --- INTERAÇÃO COM O JOGADOR ---
+        Console.Write("Primeiro, digite seu nome: ");
+        nomeJogador = Console.ReadLine();
+
+        Console.WriteLine($"\nOlá {nomeJogador}! Vamos ver se você tem sorte.");
+        Console.WriteLine("Escolha: [0] CARA ou [1] COROA");
+
+        // Lendo a escolha do jogador
+        escolha = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("\nA moeda está girando no ar...");
+        System.Threading.Thread.Sleep(1500); // Um pequeno suspense!
+
+        // Sorteio aleatório (0 ou 1)
+        ladoSorteado = gerador.Next(0, 2);
+
+        // --- CAMINHOS DIFERENTES (CONDICIONAIS) ---
+        if (ladoSorteado == 0)
+        {
+            Console.WriteLine("Caiu: CARA!");
+        }
+        else
+        {
+            Console.WriteLine("Caiu: COROA!");
+        }
+
+        // Verificando se o jogador ganhou ou perdeu
+        if (escolha == ladoSorteado)
+        {
+            Console.WriteLine($"🎊 PARABÉNS, {nomeJogador}! Você venceu o desafio.");
+        }
+        else
+        {
+            Console.WriteLine($"😢 Que pena, {nomeJogador}. A gravidade não estava a seu favor hoje.");
+        }
+
+        Console.WriteLine("\n=== FIM DO JOGO ===");
+    }
+}
